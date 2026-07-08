@@ -24,7 +24,7 @@ suppressPackageStartupMessages({
 # 0. READ & TRANSFORM
 # -----------------------------------------------------------------------------
 
-sample_tab <- read.csv("crc_long.csv")
+sample_tab <- read.csv("crc_long_simulated.csv")
 
 options(contrasts = c("contr.sum", "contr.poly"))
 sample_tab$cell_line <- factor(sample_tab$cell_line, levels = c("HCT116", "HT29"))
@@ -141,4 +141,3 @@ fit_ATP      <- run_inferential("ATP",     reduced = TRUE)
 fit_Caspase  <- run_inferential("Caspase", reduced = TRUE)
 fit_Lactate  <- run_inferential("Lactate", reduced = TRUE)
 fit_Size     <- run_inferential("Size",    reduced = TRUE)
-write.csv(describe("Size"), "descriptive_Size.csv", row.names = FALSE)
